@@ -10,5 +10,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //funcion para desloguear
+        // auth0Service.logout(this);
+        // funcion para loguear
+       //auth0Service.loginWithBrowser(this);
+
+
     }
 }
