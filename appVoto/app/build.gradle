@@ -16,7 +16,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // ---> Auth0
-        manifestPlaceholders = [auth0Domain: "@string/auth_domain", auth0Scheme: "demo"]
+        manifestPlaceholders = [auth0Domain: "@string/auth_domain", auth0Scheme: "voto"]
     }
 
     buildTypes {
