@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Voto Electronico</string>
+    <string name="auth_domain">dev-f72pcxe5akzine3s.us.auth0.com</string>
+    <string name="auth_clientId">SrOIENQmz1Tk3jijhEjpdxkq06rP9YuK</string>
+    <string name="auth_scheme">voto</string>
+    <!-- Strings Inicio -->
+    <string name="voto_main">Voto\nElectrónico</string>
+    <string name="voto_submain">Cree su votación\nen segundos</string>
+    <string name="voto_main_boton">Ingresar</string>
+    <string name="voto_image_description">Icono de voto</string>
+
+</resources>
