@@ -22,13 +22,10 @@ public class Activity2 extends AppCompatActivity {
 //        Button buttonActivity3 = findViewById(R.id.buttonActivity3);
 //        Button buttonActivity5 = findViewById(R.id.buttonActivity5);
 
-        buttonActivity2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Dentro del Intent modificar su primer parametro dependiendo donde este situada la activity y el segundo queda como esta
-                Intent intent = new Intent(Activity2.this, Activity2.class);
-                startActivity(intent);
-            }
+        buttonActivity2.setOnClickListener(v -> {
+            //Dentro del Intent modificar su primer parametro dependiendo donde este situada la activity y el segundo queda como esta
+            Intent intent = new Intent(Activity2.this, Activity2.class);
+            startActivity(intent);
         });
 
         /*buttonActivity3.setOnClickListener(new View.OnClickListener() {
