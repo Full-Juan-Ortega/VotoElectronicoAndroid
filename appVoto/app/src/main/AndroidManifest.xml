@@ -14,10 +14,14 @@
         android:theme="@style/Theme.ISPCAppVoto"
         tools:targetApi="31">
         <activity
+
             android:name=".activity6"
             android:exported="false" />
         <activity
             android:name=".Activity3"
+            android:exported="false" />
+        <activity
+            android:name=".Activity2"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
