@@ -8,5 +8,11 @@
     <string name="voto_submain">Cree su votación\nen segundos</string>
     <string name="voto_main_boton">Ingresar</string>
     <string name="voto_image_description">Icono de voto</string>
+    <!-- Strings Crear votacion -->
+    <string name="crear">CREAR</string>
+    <string name="crearVotacion">Crear Votacion</string>
+    <!-- Strings Editar votacion -->
+    <string name="editarVotacion">Editar Votacion</string>
+    <string name="editar">EDITAR</string>
 
 </resources>
