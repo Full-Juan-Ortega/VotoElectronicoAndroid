@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
-        android:id="@+id/footerLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/ColorButtonBackground"
-        android:orientation="horizontal"
-        android:padding="20dp">
-
-        <ImageView
-            android:id="@+id/buttonActivity2"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_other_houses_24" />
-
-        <ImageView
-            android:id="@+id/buttonActivity3"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_add_circle_outline_24" />
-
-        <ImageView
-            android:id="@+id/buttonActivity5"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_restore_24" />
-
-    </LinearLayout>
-</LinearLayout>
+    android:layout_height="match_parent"
+    android:background="@color/ColorButtonBackground"
+    android:padding="16dp">
+    <ImageView
+        android:id="@+id/buttonActivity2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignStart="@id/buttonActivity2"
+        android:layout_centerVertical="true"
+        android:src="@drawable/baseline_other_houses_24"
+        android:contentDescription="@string/btn_2"/>
+    <ImageView
+        android:id="@+id/buttonActivity3"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/btn_3"
+        android:src="@drawable/baseline_add_circle_outline_24" />
+    <ImageView
+        android:id="@+id/buttonActivity5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/baseline_restore_24"
+        android:contentDescription="@string/btn_5"/>
+</RelativeLayout>

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public void botonClick(View view){
         auth0Service.loginWithBrowser(this);
     }
-    public void botonLogout(View view){
-        auth0Service.logout(this);
-    }
+//    public void botonLogout(View view){
+//        auth0Service.logout(this);
+//    }
 }

@@ -8,5 +8,13 @@
     <string name="voto_submain">Cree su votación\nen segundos</string>
     <string name="voto_main_boton">Ingresar</string>
     <string name="voto_image_description">Icono de voto</string>
+    <string name="btn_volver">Volver</string>
+    <string name="btn_desloguear">Desloguear</string>
+    <string name="logo">Logo</string>
+    <string name="btn_2">Boton de inicio</string>
+    <string name="btn_3">Boton de agregar votacion</string>
+    <string name="btn_5">Boton de historial votacion</string>
+
+
 
 </resources>
