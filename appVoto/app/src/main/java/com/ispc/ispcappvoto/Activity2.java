@@ -1,12 +1,11 @@
 package com.ispc.ispcappvoto;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Activity2 extends AppCompatActivity {
 
@@ -17,34 +16,23 @@ public class Activity2 extends AppCompatActivity {
 
         //METODOS DEL FOOTER
 
-//        Revisar esto
-        @SuppressLint("WrongViewCast") Button buttonActivity2 = findViewById(R.id.buttonActivity2);
-//        Button buttonActivity3 = findViewById(R.id.buttonActivity3);
-//        Button buttonActivity5 = findViewById(R.id.buttonActivity5);
-
+        ImageView buttonActivity2 = findViewById(R.id.buttonActivity2);
         buttonActivity2.setOnClickListener(v -> {
-            //Dentro del Intent modificar su primer parametro dependiendo donde este situada la activity y el segundo queda como esta
             Intent intent = new Intent(Activity2.this, Activity2.class);
             startActivity(intent);
         });
 
-        /*buttonActivity3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            //Dentro del Intent modificar su primer parametro dependiendo donde este situada la activity y el segundo queda como esta
-                Intent intent = new Intent(Activity2.this, Activity3.class);
-                startActivity(intent);
-            }
-        });
-
-        buttonActivity5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            //Dentro del Intent modificar su primer parametro dependiendo donde este situada la activity y el segundo queda como esta
-                Intent intent = new Intent(Activity2.this, Activity5.class);
-                startActivity(intent);
-            }
-        });*/
+//        ImageView buttonActivity3 = findViewById(R.id.buttonActivity3);
+//        buttonActivity3.setOnClickListener(v -> {
+//            Intent intent = new Intent(Activity2.this, Activity3.class);
+//            startActivity(intent);
+//        });
+//
+//        ImageView buttonActivity5 = findViewById(R.id.buttonActivity5);
+//        buttonActivity5.setOnClickListener(v -> {
+//            Intent intent = new Intent(Activity2.this, Activity5.class);
+//            startActivity(intent);
+//        });
 
     }
 
