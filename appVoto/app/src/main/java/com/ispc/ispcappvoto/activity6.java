@@ -26,6 +26,7 @@ public class activity6 extends AppCompatActivity {
     private Votacion votacion;//La votacion que vamos a estar editando
     private VotacionController votacionController;
 
+
     //METODOS DEL HEADER(TOOLBAR)
 
     // Método para manejar el evento de clic en el botón "Volver"
@@ -38,6 +39,7 @@ public class activity6 extends AppCompatActivity {
     public void logout (View view){
         auth0Service.logout(this);
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +70,10 @@ public class activity6 extends AppCompatActivity {
 
 
 
+
         // Posible error llave arriba
         // Recuperar datos que enviaron
+
         Bundle extras = getIntent().getExtras();
         // Si no hay datos (cosa rara) salimos
         if (extras == null) {
@@ -102,11 +106,13 @@ public class activity6 extends AppCompatActivity {
         etEditarDescripcion.setText(votacion.getDescripcion());
 
         // Listener del click del botón para salir, simplemente cierra la actividad
+
         // btnCancelarEdicion.setOnClickListener(new View.OnClickListener() {
         //   @Override
         // public void onClick(View v) {
         //   finish();
         //}
+
         //});
 
         // Listener del click del botón que guarda cambios
