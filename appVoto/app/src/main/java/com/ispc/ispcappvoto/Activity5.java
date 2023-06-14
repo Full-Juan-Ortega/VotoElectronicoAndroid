@@ -1,13 +1,29 @@
 package com.ispc.ispcappvoto;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.ispc.ispcappvoto.controllers.VotacionController;
+import com.ispc.ispcappvoto.models.Votacion;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Activity5 extends AppCompatActivity {
+
+    private List<Votacion> listaDeVotaciones;
+    private RecyclerView recyclerView;
+    private VotacionAdapter adaptadorVotaciones;
+    private VotacionController votacionesController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +49,69 @@ public class Activity5 extends AppCompatActivity {
             Intent intent = new Intent(Activity5.this, Activity5.class);
             startActivity(intent);
         });
+
+        // Lo siguiente sí es nuestro ;)
+        // Definir nuestro controlador
+        votacionesController = new VotacionController(Activity5.this);
+
+        // Instanciar vistas
+        recyclerView = findViewById(R.id.recyclerViewVotaciones);
+
+
+        // Por defecto es una lista vacía,
+        // se la ponemos al adaptador y configuramos el recyclerView
+        listaDeVotaciones = new ArrayList<>();
+        adaptadorVotaciones = new VotacionAdapter(listaDeVotaciones);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adaptadorVotaciones);
+
+        // Una vez que ya configuramos el RecyclerView le ponemos los datos de la BD
+        refrescarListaDeVotaciones();
+
+        // Listener de los clicks en la lista, o sea el RecyclerView
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
+            @Override // Un toque sencillo
+            public void onClick(View view, int position) {
+                // Pasar a la actividad de edicion
+                Votacion votacionSeleccionada = listaDeVotaciones.get(position);
+                Intent intent = new Intent(Activity5.this, activity6.class);
+                intent.putExtra("idVotacion", votacionSeleccionada.getId());
+                intent.putExtra("nombreVotacion", votacionSeleccionada.getNombre());
+                intent.putExtra("descripcionVotacion", votacionSeleccionada.getDescripcion());
+                intent.putExtra("valoracionVotacion", votacionSeleccionada.getValoracion());
+                startActivity(intent);
+            }
+
+            @Override // Un toque largo
+            public void onLongClick(View view, int position) {
+                final Votacion votacionParaEliminar = listaDeVotaciones.get(position);
+                AlertDialog dialog = new AlertDialog
+                        .Builder(Activity5.this)
+                        .setPositiveButton("Sí, eliminar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                votacionesController.eliminarVotacion(votacionParaEliminar);
+                                refrescarListaDeVotaciones();
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setTitle("Confirmar")
+                        .setMessage("¿Eliminar a la votación " + votacionParaEliminar.getNombre() + "?")
+                        .create();
+                dialog.show();
+
+            }
+        }));
+
+
+
     }
 
     //METODOS DEL HEADER(TOOLBAR)
@@ -46,5 +125,25 @@ public class Activity5 extends AppCompatActivity {
     // Método para manejar el evento de clic en el botón "Cerrar sesión"
     public void logout(View view){
         auth0Service.logout(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refrescarListaDeVotaciones();
+    }
+
+    public void refrescarListaDeVotaciones() {
+        /*
+         * ==========
+         * Justo aquí obtenemos la lista de la BD
+         * y se la ponemos al RecyclerView
+         * ============
+         *
+         * */
+        if (adaptadorVotaciones == null) return;
+        listaDeVotaciones = votacionesController.obtenerVotaciones();
+        adaptadorVotaciones.setListaDeVotaciones(listaDeVotaciones);
+        adaptadorVotaciones.notifyDataSetChanged();
     }
 }
