@@ -80,7 +80,7 @@ public class activity6 extends AppCompatActivity {
             finish();
             return;
         }
-        // Instanciar el controlador de las mascotas
+        // Instanciar el controlador de las votaciones
         votacionController = new VotacionController(activity6.this);
 
         // Rearmar la votacion
@@ -116,55 +116,7 @@ public class activity6 extends AppCompatActivity {
         //});
 
         // Listener del click del botón que guarda cambios
-        btnGuardarCambios.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Remover previos errores si existen
-                etEditarNombre.setError(null);
-                etEditarDescripcion.setError(null);
-                etEditarValoracion.setError(null);
-                // Crear la votacion con los nuevos cambios pero ponerle
-                // el id de la anterior
-                String nuevoNombre = etEditarNombre.getText().toString();
-                String nuevaDescripcion = etEditarDescripcion.getText().toString();
-                String posibleNuevaValoracion = etEditarValoracion.getText().toString();
-                if (nuevoNombre.isEmpty()) {
-                    etEditarNombre.setError("Escribe el nombre de la votación");
-                    etEditarNombre.requestFocus();
-                    return;
-                }
-                if (nuevaDescripcion.isEmpty()) {
-                    etEditarNombre.setError("Escribe la nueva descripción");
-                    etEditarNombre.requestFocus();
-                    return;
-                }
-                if (posibleNuevaValoracion.isEmpty()) {
-                    etEditarValoracion.setError("Escribe la valoración");
-                    etEditarValoracion.requestFocus();
-                    return;
-                }
-                // Si no es entero, igualmente marcar error
-                int nuevaValoracion;
-                try {
-                    nuevaValoracion = Integer.parseInt(posibleNuevaValoracion);
-                } catch (NumberFormatException e) {
-                    etEditarValoracion.setError("Escribe un número");
-                    etEditarValoracion.requestFocus();
-                    return;
-                }
-                // Si llegamos hasta aquí es porque los datos ya están validados
-                Votacion votaciónConNuevosCambios = new Votacion(nuevoNombre, nuevaDescripcion, nuevaValoracion, votacion.getId());
-                int filasModificadas = votacionController.guardarCambios(votaciónConNuevosCambios);
-                if (filasModificadas != 1) {
-                    // De alguna forma ocurrió un error porque se debió modificar únicamente una fila
-                    Toast.makeText(activity6.this, "Error guardando cambios. Intente de nuevo.", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Si las cosas van bien, volvemos a la principal
-                    // cerrando esta actividad
-                    finish();
-                }
-            }
-        });
+
 
     }
 
@@ -177,6 +129,50 @@ public class activity6 extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Acción a realizar cuando se hace clic en el botón Aceptar
+                        // Remover previos errores si existen
+                        etEditarNombre.setError(null);
+                        etEditarDescripcion.setError(null);
+                        etEditarValoracion.setError(null);
+                        // Crear la votacion con los nuevos cambios pero ponerle
+                        // el id de la anterior
+                        String nuevoNombre = etEditarNombre.getText().toString();
+                        String nuevaDescripcion = etEditarDescripcion.getText().toString();
+                        String posibleNuevaValoracion = etEditarValoracion.getText().toString();
+                        if (nuevoNombre.isEmpty()) {
+                            etEditarNombre.setError("Escribe el nombre de la votación");
+                            etEditarNombre.requestFocus();
+                            return;
+                        }
+                        if (nuevaDescripcion.isEmpty()) {
+                            etEditarNombre.setError("Escribe la nueva descripción");
+                            etEditarNombre.requestFocus();
+                            return;
+                        }
+                        if (posibleNuevaValoracion.isEmpty()) {
+                            etEditarValoracion.setError("Escribe la valoración");
+                            etEditarValoracion.requestFocus();
+                            return;
+                        }
+                        // Si no es entero, igualmente marcar error
+                        int nuevaValoracion;
+                        try {
+                            nuevaValoracion = Integer.parseInt(posibleNuevaValoracion);
+                        } catch (NumberFormatException e) {
+                            etEditarValoracion.setError("Escribe un número");
+                            etEditarValoracion.requestFocus();
+                            return;
+                        }
+                        // Si llegamos hasta aquí es porque los datos ya están validados
+                        Votacion votaciónConNuevosCambios = new Votacion(nuevoNombre, nuevaDescripcion, nuevaValoracion, votacion.getId());
+                        int filasModificadas = votacionController.guardarCambios(votaciónConNuevosCambios);
+                        if (filasModificadas != 1) {
+                            // De alguna forma ocurrió un error porque se debió modificar únicamente una fila
+                            Toast.makeText(activity6.this, "Error guardando cambios. Intente de nuevo.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Si las cosas van bien, volvemos a la principal
+                            // cerrando esta actividad
+                            finish();
+                        }
 
                         // FLOR ACA AGREGAR EL INSERT A LA BD
                         Intent intent = new Intent(activity6.this, Activity5.class);
