@@ -149,6 +149,8 @@ public class Activity5 extends AppCompatActivity {
         adaptadorVotaciones.setListaDeVotaciones(listaDeVotaciones);
         adaptadorVotaciones.notifyDataSetChanged();
 
+    }
+
     public void showAlertDialog(View view) {
         Log.i(TAG, "showAlertDialog: ");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
