@@ -5,6 +5,7 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.widget.ImageView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,40 @@ public class Activity3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
+
+
+        //METODOS DEL FOOTER
+
+        ImageView buttonActivity2 = findViewById(R.id.buttonActivity2);
+        buttonActivity2.setOnClickListener(v -> {
+            Intent intent = new Intent(Activity3.this, Activity2.class);
+            startActivity(intent);
+        });
+
+        ImageView buttonActivity3 = findViewById(R.id.buttonActivity3);
+        buttonActivity3.setOnClickListener(v -> {
+            Intent intent = new Intent(Activity3.this, Activity3.class);
+            startActivity(intent);
+        });
+
+        ImageView buttonActivity5 = findViewById(R.id.buttonActivity5);
+        buttonActivity5.setOnClickListener(v -> {
+            Intent intent = new Intent(Activity3.this, Activity5.class);
+            startActivity(intent);
+        });
+    }
+
+    //METODOS DEL HEADER(TOOLBAR)
+
+    // Método para manejar el evento de clic en el botón "Volver"
+    public void onBackPressed(View view) {
+        // Volver a la actividad anterior
+        onBackPressed();
+    }
+
+    // Método para manejar el evento de clic en el botón "Cerrar sesión"
+    public void logout(View view){
+        auth0Service.logout(this);
 
         // Instanciar vistas
         input_titulo = findViewById(R.id.input_titulo);
@@ -115,6 +150,7 @@ public class Activity3 extends AppCompatActivity {
 
     AlertDialog alertDialog = builder.create();
     alertDialog.show();
+
     }
 }
 

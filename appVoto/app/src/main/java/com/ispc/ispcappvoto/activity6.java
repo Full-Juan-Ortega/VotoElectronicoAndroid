@@ -5,6 +5,7 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.widget.ImageView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.ispc.ispcappvoto.controllers.VotacionController;
 import com.ispc.ispcappvoto.models.Votacion;
 
+
 public class activity6 extends AppCompatActivity {
 
     private EditText etEditarNombre, etEditarDescripcion, etEditarValoracion;
@@ -25,12 +27,53 @@ public class activity6 extends AppCompatActivity {
     private VotacionController votacionController;
 
 
+    //METODOS DEL HEADER(TOOLBAR)
+
+    // Método para manejar el evento de clic en el botón "Volver"
+    public void onBackPressed (View view){
+        // Volver a la actividad anterior
+        onBackPressed();
+    }
+
+    // Método para manejar el evento de clic en el botón "Cerrar sesión"
+    public void logout (View view){
+        auth0Service.logout(this);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_6);
 
+
+        //METODOS DEL FOOTER
+
+        ImageView buttonActivity2 = findViewById(R.id.buttonActivity2);
+        buttonActivity2.setOnClickListener(v -> {
+            Intent intent = new Intent(activity6.this, Activity2.class);
+            startActivity(intent);
+        });
+
+        ImageView buttonActivity3 = findViewById(R.id.buttonActivity3);
+        buttonActivity3.setOnClickListener(v -> {
+            Intent intent = new Intent(activity6.this, Activity3.class);
+            startActivity(intent);
+        });
+
+        ImageView buttonActivity5 = findViewById(R.id.buttonActivity5);
+        buttonActivity5.setOnClickListener(v -> {
+            Intent intent = new Intent(activity6.this, Activity5.class);
+            startActivity(intent);
+        });
+
+
+
+
+
+        // Posible error llave arriba
         // Recuperar datos que enviaron
+
         Bundle extras = getIntent().getExtras();
         // Si no hay datos (cosa rara) salimos
         if (extras == null) {
@@ -63,11 +106,13 @@ public class activity6 extends AppCompatActivity {
         etEditarDescripcion.setText(votacion.getDescripcion());
 
         // Listener del click del botón para salir, simplemente cierra la actividad
-       // btnCancelarEdicion.setOnClickListener(new View.OnClickListener() {
-         //   @Override
-           // public void onClick(View v) {
-             //   finish();
-            //}
+
+        // btnCancelarEdicion.setOnClickListener(new View.OnClickListener() {
+        //   @Override
+        // public void onClick(View v) {
+        //   finish();
+        //}
+
         //});
 
         // Listener del click del botón que guarda cambios
@@ -149,5 +194,6 @@ public class activity6 extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-
 }
+
+

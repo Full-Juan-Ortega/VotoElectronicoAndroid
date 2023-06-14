@@ -28,6 +28,32 @@ public class Activity5 extends AppCompatActivity {
     private VotacionAdapter adaptadorVotaciones;
     private VotacionController votacionesController;
 
+    public void showAlertDialog(View view) {
+        Log.i(TAG, "showAlertDialog: ");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("¿Eliminar?")
+                .setMessage("Confirme si quiere eliminar.")
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Acción a realizar cuando se hace clic en el botón Aceptar
+
+                        // FLOR ACA AGREGAR EL INSERT A LA BD
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Acción a realizar cuando se hace clic en el botón Cancelar
+                        dialog.dismiss();
+                    }
+                });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,31 +175,5 @@ public class Activity5 extends AppCompatActivity {
         adaptadorVotaciones.setListaDeVotaciones(listaDeVotaciones);
         adaptadorVotaciones.notifyDataSetChanged();
 
-    }
+}}
 
-    public void showAlertDialog(View view) {
-        Log.i(TAG, "showAlertDialog: ");
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("¿Eliminar?")
-                .setMessage("Confirme si quiere eliminar.")
-                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Acción a realizar cuando se hace clic en el botón Aceptar
-
-                        // FLOR ACA AGREGAR EL INSERT A LA BD
-                    }
-                })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Acción a realizar cuando se hace clic en el botón Cancelar
-                        dialog.dismiss();
-                    }
-                });
-
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-
-    }
-}
