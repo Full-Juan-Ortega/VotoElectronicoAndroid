@@ -88,7 +88,7 @@
         android:background="@drawable/btn_circular"
         android:fontFamily="@font/ibm_plex_mono"
         android:letterSpacing="0.1"
-        android:onClick="botonClick"
+        android:onClick="showAlertDialog"
         android:text="@string/crear"
         android:textColor="@color/Gray2"
         android:textSize="24sp"
