@@ -27,6 +27,20 @@ public class activity6 extends AppCompatActivity {
     private VotacionController votacionController;
 
 
+    //METODOS DEL HEADER(TOOLBAR)
+
+    // Método para manejar el evento de clic en el botón "Volver"
+    public void onBackPressed (View view){
+        // Volver a la actividad anterior
+        onBackPressed();
+    }
+
+    // Método para manejar el evento de clic en el botón "Cerrar sesión"
+    public void logout (View view){
+        auth0Service.logout(this);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,23 +66,14 @@ public class activity6 extends AppCompatActivity {
             Intent intent = new Intent(activity6.this, Activity5.class);
             startActivity(intent);
         });
-    }
-    //METODOS DEL HEADER(TOOLBAR)
 
-    // Método para manejar el evento de clic en el botón "Volver"
-    public void onBackPressed(View view) {
-        // Volver a la actividad anterior
-        onBackPressed();
-    }
 
-    // Método para manejar el evento de clic en el botón "Cerrar sesión"
-    public void logout(View view){
-        auth0Service.logout(this);
-    }
 
-}
- // Posible error llave arriba
-        // Recuperar datos que enviaron 
+
+
+        // Posible error llave arriba
+        // Recuperar datos que enviaron
+
         Bundle extras = getIntent().getExtras();
         // Si no hay datos (cosa rara) salimos
         if (extras == null) {
@@ -101,11 +106,13 @@ public class activity6 extends AppCompatActivity {
         etEditarDescripcion.setText(votacion.getDescripcion());
 
         // Listener del click del botón para salir, simplemente cierra la actividad
-       // btnCancelarEdicion.setOnClickListener(new View.OnClickListener() {
-         //   @Override
-           // public void onClick(View v) {
-             //   finish();
-            //}
+
+        // btnCancelarEdicion.setOnClickListener(new View.OnClickListener() {
+        //   @Override
+        // public void onClick(View v) {
+        //   finish();
+        //}
+
         //});
 
         // Listener del click del botón que guarda cambios
@@ -187,6 +194,6 @@ public class activity6 extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-
 }
+
 
