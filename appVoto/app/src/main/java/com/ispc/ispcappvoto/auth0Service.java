@@ -3,6 +3,7 @@ package com.ispc.ispcappvoto;
 import static android.content.ContentValues.TAG;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import com.auth0.android.Auth0;
 import com.auth0.android.authentication.AuthenticationAPIClient;
@@ -18,6 +19,8 @@ public class auth0Service {
     private static final Auth0 account = new Auth0(
             "SrOIENQmz1Tk3jijhEjpdxkq06rP9YuK",
             "dev-f72pcxe5akzine3s.us.auth0.com");
+
+
 
     public static void loginWithBrowser(Context context) {
         Log.i(TAG, "loginWithBrowser: ");
@@ -41,8 +44,10 @@ public class auth0Service {
                         // This can be used to call APIs
                         Log.i(TAG, "onSuccess: 1");
                         String accessToken = result.getAccessToken();
-
                         showUserProfile(accessToken);
+                        Intent intent = new Intent(context, Activity2.class);
+                        context.startActivity(intent);
+
                     }
                 });
     }
@@ -61,10 +66,11 @@ public class auth0Service {
 
                     @Override
                     public void onSuccess(UserProfile result) {
-                        // We have the user's profile!
 
+                        // We have the user's profile!
                         Log.i(TAG, "onSuccess 2 : " + result.getEmail() + result.getId());
                         Log.i(TAG, "onSuccess 2 :  Login Successful! ");
+
                     }
                 });
     }
@@ -80,6 +86,8 @@ public class auth0Service {
                         // The user has been logged out!
 
                         Log.i(TAG, "Successfully logged out!");
+                        Intent intent = new Intent(context, MainActivity.class);
+                        context.startActivity(intent);
                     }
 
                     @Override
