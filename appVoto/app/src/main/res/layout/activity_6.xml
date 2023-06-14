@@ -94,7 +94,7 @@
         android:layout_height="49dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/btn_circular"
-        android:fontFamily="@font/roboto_mono_thin"
+        android:fontFamily="@font/roboto_mono"
         android:letterSpacing="0.1"
         android:onClick="showAlertDialog"
         android:text="@string/editar"
