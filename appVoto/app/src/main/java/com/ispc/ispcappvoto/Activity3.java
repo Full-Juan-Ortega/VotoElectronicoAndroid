@@ -58,24 +58,20 @@ public class Activity3 extends AppCompatActivity {
             Intent intent = new Intent(Activity3.this, Activity5.class);
             startActivity(intent);
         });
+
+        //METODOS DEL HEADER(TOOLBAR)
+        // Método para manejar el evento de clic en el botón "Cerrar sesión"
+        ImageView btnLogout = findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(v -> auth0Service.logout(this));
+
+        // Método para manejar el evento de clic en el botón "Volver"
+        ImageView btnBack = findViewById(R.id.btnBack);
+        btnBack.setVisibility(View.VISIBLE);
+        btnBack.setOnClickListener(v ->{
+            Intent intent = new Intent(Activity3.this, Activity2.class);
+            startActivity(intent);
+        });
     }
-
-    //METODOS DEL HEADER(TOOLBAR)
-
-    // Método para manejar el evento de clic en el botón "Volver"
-    public void onBackPressed(View view) {
-        // Volver a la actividad anterior
-        onBackPressed();
-    }
-
-    // Método para manejar el evento de clic en el botón "Cerrar sesión"
-    public void logout(View view) {
-        auth0Service.logout(this);
-    }
-
-
-
-
 
     public void showAlertDialog(View view) {
     Log.i(TAG, "showAlertDialog: ");

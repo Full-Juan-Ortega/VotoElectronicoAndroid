@@ -79,6 +79,14 @@ public class Activity5 extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // Método para manejar el evento de clic en el botón "Volver"
+        ImageView btnBack = findViewById(R.id.btnBack);
+        btnBack.setVisibility(View.VISIBLE);
+        btnBack.setOnClickListener(v ->{
+            Intent intent = new Intent(Activity5.this, Activity2.class);
+            startActivity(intent);
+        });
+
         // Lo siguiente sí es nuestro ;)
         // Definir nuestro controlador
         votacionesController = new VotacionController(Activity5.this);
@@ -144,12 +152,6 @@ public class Activity5 extends AppCompatActivity {
     }
 
     //METODOS DEL HEADER(TOOLBAR)
-
-    // Método para manejar el evento de clic en el botón "Volver"
-    public void onBackPressed(View view) {
-        // Volver a la actividad anterior
-        onBackPressed();
-    }
 
     // Método para manejar el evento de clic en el botón "Cerrar sesión"
     public void logout(View view){
