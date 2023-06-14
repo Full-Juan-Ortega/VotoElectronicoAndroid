@@ -1,10 +1,15 @@
 package com.ispc.ispcappvoto;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Activity2 extends AppCompatActivity {
@@ -34,6 +39,11 @@ public class Activity2 extends AppCompatActivity {
             startActivity(intent);
         });
 
+        ImageView btnLogout = findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(v ->{
+            auth0Service.logout(this);
+        });
+
     }
 
     //METODOS DEL HEADER(TOOLBAR)
@@ -44,10 +54,7 @@ public class Activity2 extends AppCompatActivity {
         onBackPressed();
     }
 
-    // Método para manejar el evento de clic en el botón "Cerrar sesión"
-    public void logout(View view){
-        auth0Service.logout(this);
-    }
+
 
     //METODOS DEL BODY
 
