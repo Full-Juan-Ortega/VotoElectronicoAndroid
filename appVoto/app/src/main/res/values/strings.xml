@@ -20,6 +20,7 @@
     <!-- Strings Editar votacion -->
     <string name="editarVotacion">Editar Votacion</string>
     <string name="editar">EDITAR</string>
+    <string name="explicacion">Podrás determinar fácilmente la opinión de un grupo sobre un determinado tema.\n\nAquí encontrarás funciones para:\n\n- Crear tu votación\n- Agregar participantes\n- Ver el historial de resultados</string>
 
 
 </resources>

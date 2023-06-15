@@ -1,18 +1,44 @@
 package com.ispc.ispcappvoto;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.View;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Activity2 extends AppCompatActivity {
 
+    private MediaPlayer mediaPlayer;
+    private SurfaceHolder surfaceHolder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
+
+        SurfaceView surfaceView = findViewById(R.id.surfaceView);
+        surfaceHolder = surfaceView.getHolder();
+        surfaceHolder.addCallback(new SurfaceHolder.Callback() {
+            @Override
+            public void surfaceCreated(SurfaceHolder holder) {
+                // Inicializar el reproductor multimedia una vez que la superficie esté lista
+                initializeMediaPlayer();
+            }
+
+            @Override
+            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+                // No es necesario implementar este método
+            }
+
+            @Override
+            public void surfaceDestroyed(SurfaceHolder holder) {
+                // Liberar recursos del reproductor multimedia cuando la superficie sea destruida
+                releaseMediaPlayer();
+            }
+        });
 
         //METODOS DEL FOOTER
 
@@ -34,21 +60,24 @@ public class Activity2 extends AppCompatActivity {
             startActivity(intent);
         });
 
+        ImageView btnLogout = findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(v -> auth0Service.logout(this));
+
     }
 
-    //METODOS DEL HEADER(TOOLBAR)
-
-    // Método para manejar el evento de clic en el botón "Volver"
-    public void onBackPressed(View view) {
-        // Volver a la actividad anterior
-        onBackPressed();
+    private void initializeMediaPlayer() {
+        mediaPlayer = MediaPlayer.create(this, R.raw.video);
+        mediaPlayer.setDisplay(surfaceHolder);
+        mediaPlayer.setLooping(true); // Repetir el video continuamente
+        mediaPlayer.start();
     }
 
-    // Método para manejar el evento de clic en el botón "Cerrar sesión"
-    public void logout(View view){
-        auth0Service.logout(this);
+    private void releaseMediaPlayer() {
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
-
     //METODOS DEL BODY
 
 }
