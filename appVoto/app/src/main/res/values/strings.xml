@@ -17,10 +17,14 @@
     <!-- Strings Crear votacion -->
     <string name="crear">CREAR</string>
     <string name="crearVotacion">Crear Votacion</string>
+    <string name="titulo">Titulo</string>
+    <string name="valoracion">Valoración</string>
+    <string name="descripcion">Descripción</string>
     <!-- Strings Editar votacion -->
     <string name="editarVotacion">Editar Votacion</string>
     <string name="editar">EDITAR</string>
     <string name="explicacion">Podrás determinar fácilmente la opinión de un grupo sobre un determinado tema.\n\nAquí encontrarás funciones para:\n\n- Crear tu votación\n- Agregar participantes\n- Ver el historial de resultados</string>
+
 
 
 </resources>
