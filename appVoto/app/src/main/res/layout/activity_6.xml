@@ -37,11 +37,11 @@
         android:layout_height="52dp"
         android:background="@drawable/input_border"
         android:ems="10"
-        android:hint="Titulo"
+        android:hint="@string/titulo"
         android:inputType="text"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
         android:paddingTop="10dp"
-        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.333"
-        tools:hint="Titulo" />
+        tools:hint="Titulo"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/input_valotacion"
@@ -57,17 +58,18 @@
         android:layout_height="60dp"
         android:background="@drawable/input_border"
         android:ems="10"
-        android:hint="Valoración"
+        android:hint="@string/valoracion"
         android:inputType="number"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
         android:paddingTop="10dp"
-        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/input_titulo"
         app:layout_constraintStart_toStartOf="@+id/input_titulo"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.462" />
+        app:layout_constraintVertical_bias="0.462"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/input_descripcion"
@@ -75,7 +77,7 @@
         android:layout_height="97dp"
         android:background="@drawable/input_border"
         android:ems="10"
-        android:hint="Descripción"
+        android:hint="@string/descripcion"
         android:inputType="text"
         android:paddingLeft="20dp"
         android:paddingTop="45dp"
@@ -86,7 +88,8 @@
         app:layout_constraintStart_toStartOf="@+id/input_valotacion"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.625"
-        tools:paddingBottom="10dp" />
+        tools:paddingBottom="10dp"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/buttonCrear2"
@@ -94,12 +97,12 @@
         android:layout_height="49dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/btn_circular"
-        android:fontFamily="@font/ibm_plex_mono"
+        android:fontFamily="@font/roboto_mono"
         android:letterSpacing="0.1"
+        android:onClick="showAlertDialog"
         android:text="@string/editar"
         android:textColor="@color/Gray2"
         android:textSize="24sp"
-        android:onClick="showAlertDialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
