@@ -70,7 +70,10 @@ A continuación verás capturas de la app funcionando.
 
 
 ## Figma
-
+<br>
+Aqui veremos capturas en la fase de diseño del grupo con las ideas que teniamos sobre como podría llegar a ser la aplicación en cuanto al diseño en general.
+<br>
+<br>
 <img src="ReadmeRecursos/VotoApp_Figma_BuscandoEstilo.png" alt="VotoApp_Figma_BuscandoEstilo" border="0">
 
 
