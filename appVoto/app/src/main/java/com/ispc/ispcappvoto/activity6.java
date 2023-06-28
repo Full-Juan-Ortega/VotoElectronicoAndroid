@@ -91,7 +91,6 @@ public class activity6 extends AppCompatActivity {
         etEditarValoracion = findViewById(R.id.input_valotacion);
         etEditarNombre = findViewById(R.id.input_titulo);
         etEditarDescripcion = findViewById(R.id.input_descripcion);
-        //btnCancelarEdicion = findViewById(R.id.btnCancelarEdicionVotacion);
         btnGuardarCambios = findViewById(R.id.buttonCrear);
 
 
@@ -156,7 +155,7 @@ public class activity6 extends AppCompatActivity {
                             finish();
                         }
 
-                        // FLOR ACA AGREGAR EL INSERT A LA BD
+                        //AGREGAR EL INSERT A LA BD
                         Intent intent = new Intent(activity6.this, Activity5.class);
                         startActivity(intent);
                     }

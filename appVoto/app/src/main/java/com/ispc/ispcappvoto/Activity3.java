@@ -124,7 +124,7 @@ public class Activity3 extends AppCompatActivity {
                         // Terminar
                         finish();
                     }
-                    // FLOR ACA AGREGAR EL INSERT A LA BD
+                    // AGREGAR EL INSERT A LA BD
                     Intent intent = new Intent(Activity3.this, Activity2.class);
                     startActivity(intent);
                 }

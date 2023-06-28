@@ -35,11 +35,7 @@ public class Activity5 extends AppCompatActivity {
                 .setMessage("Confirme si quiere eliminar.")
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Acción a realizar cuando se hace clic en el botón Aceptar
-
-                        // FLOR ACA AGREGAR EL INSERT A LA BD
-                    }
+                    public void onClick(DialogInterface dialog, int which) {}
                 })
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
@@ -87,8 +83,6 @@ public class Activity5 extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Lo siguiente sí es nuestro ;)
-        // Definir nuestro controlador
         votacionesController = new VotacionController(Activity5.this);
 
         // Instanciar vistas
